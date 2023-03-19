@@ -9,6 +9,7 @@ import os
 from bs4 import BeautifulSoup
 from loguru import logger
 
+ip = os.environ.get('IP')
 
 def cookies2dict(_cookies):
     _cookieDict = {}
@@ -103,7 +104,7 @@ class Oshwhub:
         # _CASAuth = _oshw_cookies['CASAuth']
 
         oshw_headers = {
-            "X-Forwarded-For": "***.***.***.***",
+            "X-Forwarded-For": "IP",
             "Accept": self.cookies_Accept,
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language": "zh-CN,zh;q=0.9",
@@ -126,7 +127,7 @@ class Oshwhub:
         logger.info('开始获取CASAuth...')
 
         passport_headers = {
-            "X-Forwarded-For": "***.***.***.***",
+            "X-Forwarded-For": "IP",
             "Accept": self.cookies_Accept,
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language": "zh-CN,zh;q=0.9",
@@ -146,7 +147,7 @@ class Oshwhub:
         # print("PASSPORT网域下acw_tc:", passport_cookies['acw_tc'])
 
         passport_headers2 = {
-            "X-Forwarded-For": "***.***.***.***",
+            "X-Forwarded-For": "IP",
             "Accept": self.cookies_Accept,
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language": "zh-CN,zh;q=0.9",
@@ -173,7 +174,7 @@ class Oshwhub:
         logger.info('开始获取登录表单里lt参数...')
 
         login_headers = {
-            "X-Forwarded-For": "***.***.***.***",
+            "X-Forwarded-For": "IP",
             "Accept": self.cookies_Accept,
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language": "zh-CN,zh;q=0.9",
@@ -226,7 +227,7 @@ class Oshwhub:
 
         # 验证ticket
         oshw_headers = {
-            "X-Forwarded-For": "***.***.***.***",
+            "X-Forwarded-For": "IP",
             "Accept": self.cookies_Accept,
             "Accept-Encoding": "gzip, deflate, br",
             "Accept-Language": "zh-CN,zh;q=0.9",
@@ -359,6 +360,7 @@ url_pushplus = "http://www.pushplus.plus/send?"
 
 # 需修改部分
 OSHW = '{"手机号": "密码"}'
+#环境变量export ip=""
 
 # 推送加 推送
 # pushplus token
